@@ -21,6 +21,15 @@ $(function() {
          * allFeeds in app.js to be an empty array and refresh the
          * page?
          */
+        /*
+        *Regular expression from https://gist.github.com/dperini/729294
+        *Author: Diego Perini
+        *Version Date: 2018-09-12
+        */
+        var urlTest = new RegExp(/^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z0-9\u00a1-\uffff][a-z0-9\u00a1-\uffff_-]{0,62})?[a-z0-9\u00a1-\uffff]\.)+(?:[a-z\u00a1-\uffff]{2,}\.?))(?::\d{2,5})?(?:[/?#]\S*)?$/i);
+        var haveURLs = true;
+        var feedURL;
+
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
@@ -31,7 +40,15 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-
+        it('has URL', function() {
+            for(var i=0; i < allFeeds.length; i++){
+                feedURL = allFeeds[i].url;
+                if (!urlTest.test(feedURL)){
+                    haveURLs = false;
+                }
+            }
+            expect(haveURLs).toBe(true);
+        });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
