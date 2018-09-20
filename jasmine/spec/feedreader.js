@@ -84,7 +84,7 @@ $(function() {
 		 */
 
 		it('is hidden by default', function(){
-			expect(document.body.className).toBe('menu-hidden')
+			expect(document.body.className).toBe('menu-hidden');
 		});
 
 
@@ -125,6 +125,7 @@ $(function() {
 			done();
 		});
 	});
+
 	/* TODO: Write a new test suite named "New Feed Selection" */
 
 	describe('New Feed Selection', function() {
@@ -136,14 +137,17 @@ $(function() {
 		 */
 
 		beforeEach(function(done) {
+			i=0;
 			loadFeed(i, function() {
+				i +=1;
 				done();
 			});
 		});
 
 		it('New Feed Content Changes', function(done) {
 			expect(document.getElementsByClassName('entry')[i].innerText).not.toBe(document.getElementsByClassName('entry')[i-1].innerText);
-		})
+			done();
+		});
 	});
 
 }());
