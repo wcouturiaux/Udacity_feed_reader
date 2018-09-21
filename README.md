@@ -2,9 +2,9 @@
 
 ## Table of Contents
 
-*[How to Run Application](#how-to-run-application)
-*[Dependencies](#dependencies)
-*[Project Overview](#project-overview)
+* [How to Run Application](#how-to-run-application)
+* [Dependencies](#dependencies)
+* [Project Overview](#project-overview)
 
 
 ## How to Run Application
