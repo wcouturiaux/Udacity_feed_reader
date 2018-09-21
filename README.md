@@ -1,3 +1,32 @@
+# Feed Reader Project
+
+## Table of Contents
+
+*[How to Run Application](#how-to-run-application)
+*[Dependencies](#dependencies)
+*[Project Overview](#project-overview)
+
+
+## How to Run Application
+
+1. Download the repository.
+2. Navigate to folder location of the repository and open the [Main Page](index.html)
+3. Jasmine tests results will display at the bottom of the page.
+4. To change the feed click the hamburger (menu icon) at the top left of the page
+
+## Add Feeds
+
+1. Navigate to the js folder in the repository
+2. Open the [Main Javascript](js/app.js)
+3. Locate the allFeeds array
+4. Add the new feed name and url
+5. reload [Main Page](index.html)
+
+## Dependencies
+
+1. Regular expression for url validation by Diego Perini found at https://gist.github.com/dperini/729294
+2. Google feed reader API.
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
@@ -44,5 +73,5 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 17. No test should be dependent on the results of another.
 18. Callbacks should be used to ensure that feeds are loaded before they are tested.
 19. Implement error handling for undefined variables and out-of-bound array access.
-20. When complete - all of your tests should pass. 
+20. When complete - all of your tests should pass.
 21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
