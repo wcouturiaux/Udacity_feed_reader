@@ -32,13 +32,13 @@ $(function() {
 		var validUrls = true;
 
 		//Check if allfeeds array is defined and populated
+
 		it('are defined', function() {
 
 			expect(allFeeds).toBeDefined();
 			expect(allFeeds.length).not.toBe(0);
 
 		});
-
 
 		/* Test 'has valid URL' checks that a url is defined for each
 		 * feed in allFeeds and if that url is valid per the regular
@@ -50,12 +50,16 @@ $(function() {
 			for(var i=0; i < allFeeds.length; i++){
 
 				if(!urlTest.test(allFeeds[i].url)){
+
 					validUrls = false;
+
 				}
 
 				expect(allFeeds[i].url).toBeDefined();
 				expect(validUrls).toBe(true);
+
 			}
+
 		});
 
 		/* Test 'has valid name' checks that a name is defined for each
@@ -65,13 +69,15 @@ $(function() {
 		it('has valid name', function() {
 
 			for(var i=0; i < allFeeds.length; i++){
+
 				expect(allFeeds[i].name).toBeDefined();
 				expect(allFeeds[i].name.length).not.toBe(0);
+
 			}
+
 		});
 
 	});
-
 
 	/* Test suite 'Menu' contains tests performed agains the site menu */
 
@@ -82,66 +88,83 @@ $(function() {
 		 */
 
 		it('is hidden by default', function(){
-			expect(document.body.className).toBe('menu-hidden');
+
+			expect($('body').hasClass('menu-hidden')).toBe(true);
+
 		});
-
-
 
 		/* Test 'changes visibility' exeutes a click on the menu icon
 		 * then checks that the class name has changed to ''. It then
 		 * executes another click and tests the class name to be 'menu-hidden'
 	  	*/
 
-	  	it('changes visibility', function() {
-	 		menu = document.getElementsByClassName('menu-icon-link');
-	 		menu[0].click();
-	 		expect(document.body.className).toBe('');
-	 		menu[0].click();
-	 		expect(document.body.className).toBe('menu-hidden');
-	 	});
+		it('changes visibility', function() {
+
+			menu = document.getElementsByClassName('menu-icon-link');
+			menu[0].click();
+			expect(document.body.className).toBe('');
+			menu[0].click();
+			expect(document.body.className).toBe('menu-hidden');
+
+		});
+
 	});
 
 	/* Test suite 'Initial Entries' contains test performed against feed entries */
 
 	describe('Inital Entries', function() {
 
-
 		/* Test 'should load at least 1 feed' checks that an entry has been made
 		 * following the execution of loadFeed.
 		 */
+
 		beforeEach(function(done) {
+
 			loadFeed(0,function() {
+
 				done();
+
 			});
+
 		});
 
 		it('Should load at least 1 feed', function(done) {
+
 			expect(document.getElementsByClassName('entry').length).not.toBe(0);
 			done();
+
 		});
+
 	});
 
 	/* Test suite 'New Feed Selection' performs tests against feed changes */
 
 	describe('New Feed Selection', function() {
 
-
 		/* Test 'New Feed Content Changes' checks that content changes when
 		 * a new feed is loaded.
 		 */
 
 		beforeEach(function(done) {
+
 			i=0;
+
 			loadFeed(i, function() {
+
 				i +=1;
 				done();
+
 			});
+
 		});
 
 		it('New Feed Content Changes', function(done) {
+
 			expect(document.getElementsByClassName('entry')[i].innerText).not.toBe(document.getElementsByClassName('entry')[i-1].innerText);
 			done();
+
 		});
+
 	});
 
 }());
