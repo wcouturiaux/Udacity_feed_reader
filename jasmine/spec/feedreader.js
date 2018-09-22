@@ -146,6 +146,10 @@ $(function() {
 		 * a new feed is loaded.
 		 */
 
+		/**************************************************************************
+		 * Code for this test adapted from FEND Slack code provided in study group
+		***************************************************************************/
+
 		var currentFeed;
 
 		beforeEach(function(done) {
