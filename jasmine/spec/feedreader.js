@@ -130,7 +130,7 @@ $(function() {
 
 		it('Should load at least 1 feed', function(done) {
 
-			expect(document.getElementsByClassName('entry').length).not.toBe(0);
+			expect($('div.feed').find('a.entry-link').length).not.toBe(0);
 			done();
 
 		});
@@ -145,22 +145,26 @@ $(function() {
 		 * a new feed is loaded.
 		 */
 
+		var currentFeed;
+
 		beforeEach(function(done) {
 
-			i=0;
 
-			loadFeed(i, function() {
+			loadFeed(0, function(){
 
-				i +=1;
-				done();
+				currentFeed = $('.feed').html();
 
-			});
+				loadFeed(1,done);
+
+			})
 
 		});
 
+
+
 		it('New Feed Content Changes', function(done) {
 
-			expect(document.getElementsByClassName('entry')[i].innerText).not.toBe(document.getElementsByClassName('entry')[i-1].innerText);
+			expect(currentFeed).not.toBe($('.feed').html());
 			done();
 
 		});
