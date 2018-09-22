@@ -100,11 +100,11 @@ $(function() {
 
 		it('changes visibility', function() {
 
-			menu = document.getElementsByClassName('menu-icon-link');
-			menu[0].click();
-			expect(document.body.className).toBe('');
-			menu[0].click();
-			expect(document.body.className).toBe('menu-hidden');
+			menu = document.getElementsByClassName('menu-icon-link'); // store menu icon element in variable
+			menu[0].click();  // Perform a click on the menu icon
+			expect($('body').hasClass('menu-hidden')).toBe(false); // check if menu un-hidden
+			menu[0].click(); // Perform a click on the menu icon
+			expect($('body').hasClass('menu-hidden')).toBe(true); // check if menu rehidden on click
 
 		});
 
@@ -120,6 +120,7 @@ $(function() {
 
 		beforeEach(function(done) {
 
+			//load a feed
 			loadFeed(0,function() {
 
 				done();
@@ -152,9 +153,8 @@ $(function() {
 
 			loadFeed(0, function(){
 
-				currentFeed = $('.feed').html();
-
-				loadFeed(1,done);
+				currentFeed = $('.feed').html(); //store current feed container html in a variable
+				loadFeed(1,done); // load new feed
 
 			})
 
@@ -164,7 +164,7 @@ $(function() {
 
 		it('New Feed Content Changes', function(done) {
 
-			expect(currentFeed).not.toBe($('.feed').html());
+			expect(currentFeed).not.toBe($('.feed').html()); // check if feeds have the same html
 			done();
 
 		});
