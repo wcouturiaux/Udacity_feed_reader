@@ -131,7 +131,7 @@ $(function() {
 
 		it('Should load at least 1 feed', function(done) {
 
-			expect($('div.feed').find('a.entry-link').length).not.toBe(0);
+			expect($('div.feed').find('.entry').length).not.toBe(0);
 			done();
 
 		});
